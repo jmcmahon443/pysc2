@@ -20,9 +20,13 @@ from __future__ import print_function
 
 import os
 
+from future.builtins import str  # pylint: disable=redefined-builtin
+
 from pysc2 import run_configs
 
-from pysc2.lib import app
+from absl import app
+from pysc2.lib import gfile
+from s2clientprotocol import common_pb2 as sc_common
 from s2clientprotocol import sc2api_pb2 as sc_pb
 
 
@@ -62,15 +66,15 @@ def _replay_index(replay_dir):
             info.game_duration_loops,
             len(info.player_info),
             sc_pb.Result.Name(info.player_info[0].player_result.result),
-            sc_pb.Race.Name(info.player_info[0].player_info.race_actual),
+            sc_common.Race.Name(info.player_info[0].player_info.race_actual),
             info.player_info[0].player_apm,
         ]
         if len(info.player_info) >= 2:
           out += [
-              sc_pb.Race.Name(info.player_info[1].player_info.race_actual),
+              sc_common.Race.Name(info.player_info[1].player_info.race_actual),
               info.player_info[1].player_apm,
           ]
-        print(u",".join(unicode(s) for s in out))
+        print(u",".join(str(s) for s in out))
     if bad_replays:
       print("Replays with errors:")
       print("\n".join(bad_replays))
@@ -89,7 +93,7 @@ def _replay_info(replay_path):
   print(info)
 
 
-def _main(argv=()):
+def main(argv):
   if not argv:
     raise ValueError("No replay directory or path specified.")
   if len(argv) > 2:
@@ -97,7 +101,7 @@ def _main(argv=()):
   path = argv[1]
 
   try:
-    if os.path.isdir(path):
+    if gfile.IsDirectory(path):
       return _replay_index(path)
     else:
       return _replay_info(path)
@@ -105,10 +109,9 @@ def _main(argv=()):
     pass
 
 
-def main():  # Needed so the setup.py scripts work.
-  app.really_start(_main)
+def entry_point():  # Needed so the setup.py scripts work.
+  app.run(main)
 
 
 if __name__ == "__main__":
-  main()
-
+  app.run(main)

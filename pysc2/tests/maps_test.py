@@ -18,7 +18,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import logging
+from absl import logging
 import os
 import random
 
@@ -28,7 +28,8 @@ from pysc2 import maps
 from pysc2 import run_configs
 from pysc2.tests import utils
 
-from pysc2.lib import basetest
+from absl.testing import absltest as basetest
+from s2clientprotocol import common_pb2 as sc_common
 from s2clientprotocol import sc2api_pb2 as sc_pb
 
 
@@ -41,8 +42,7 @@ class MapsTest(utils.TestCase):
     for _, map_class in sorted(all_maps.items()):
       map_inst = map_class()
       logging.info("map: %s", map_inst.name)
-      self.assertTrue(run_config.map_data(map_inst.path),
-                      msg="Failed on %s" % map_inst)
+      self.assertTrue(map_inst.data(run_config), msg="Failed on %s" % map_inst)
 
   def test_load_random_map(self):
     """Test loading a few random maps."""
@@ -57,11 +57,11 @@ class MapsTest(utils.TestCase):
         m = map_class()
         logging.info("Loading map: %s", m.name)
         create = sc_pb.RequestCreateGame(local_map=sc_pb.LocalMap(
-            map_path=m.path, map_data=run_config.map_data(m.path)))
+            map_path=m.path, map_data=m.data(run_config)))
         create.player_setup.add(type=sc_pb.Participant)
-        create.player_setup.add(type=sc_pb.Computer, race=sc_pb.Random,
+        create.player_setup.add(type=sc_pb.Computer, race=sc_common.Random,
                                 difficulty=sc_pb.VeryEasy)
-        join = sc_pb.RequestJoinGame(race=sc_pb.Random,
+        join = sc_pb.RequestJoinGame(race=sc_common.Random,
                                      options=sc_pb.InterfaceOptions(raw=True))
 
         controller.create_game(create)

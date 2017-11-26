@@ -20,7 +20,7 @@ from __future__ import print_function
 
 from pysc2 import maps
 
-from pysc2.lib import app
+from absl import app
 
 
 def main(unused_argv):
@@ -31,4 +31,4 @@ def main(unused_argv):
 
 
 if __name__ == "__main__":
-  app.run()
+  app.run(main)

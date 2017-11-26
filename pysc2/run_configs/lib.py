@@ -22,6 +22,7 @@ import os
 
 from pysc2.lib import sc_process
 
+from pysc2.lib import gfile
 
 
 class SC2LaunchError(Exception):
@@ -31,28 +32,29 @@ class SC2LaunchError(Exception):
 class RunConfig(object):
   """Base class for different run configs."""
 
-  def __init__(self, replay_dir, data_dir, tmp_dir, exec_path, cwd=None,
-               env=None):
+  def __init__(self, replay_dir, data_dir, tmp_dir, cwd=None, env=None):
     """Initialize the runconfig with the various directories needed.
 
     Args:
       replay_dir: Where to find replays. Might not be accessible to SC2.
       data_dir: Where SC2 should find the data and battle.net cache.
       tmp_dir: The temporary directory. None is system default.
-      exec_path: Where to find the SC2 binary.
       cwd: Where to set the current working directory.
       env: What to pass as the environment variables.
     """
     self.replay_dir = replay_dir
     self.data_dir = data_dir
     self.tmp_dir = tmp_dir
-    self.exec_path = exec_path
     self.cwd = cwd
     self.env = env
 
+  def exec_path(self, game_version=None):
+    """Get the exec_path for this platform. Possibly find the latest build."""
+    raise NotImplementedError()
+
   def map_data(self, map_name):
     """Return the map data for a map by name or path."""
-    with open(os.path.join(self.data_dir, "Maps", map_name), "rb") as f:
+    with gfile.Open(os.path.join(self.data_dir, "Maps", map_name), "rb") as f:
       return f.read()
 
   def abs_replay_path(self, replay_path):
@@ -61,7 +63,7 @@ class RunConfig(object):
 
   def replay_data(self, replay_path):
     """Return the replay data given a path to the replay."""
-    with open(self.abs_replay_path(replay_path), "rb") as f:
+    with gfile.Open(self.abs_replay_path(replay_path), "rb") as f:
       return f.read()
 
   def replay_paths(self, replay_dir):
@@ -70,7 +72,7 @@ class RunConfig(object):
     if replay_dir.lower().endswith(".sc2replay"):
       yield replay_dir
       return
-    for f in os.listdir(replay_dir):
+    for f in gfile.ListDir(replay_dir):
       if f.lower().endswith(".sc2replay"):
         yield os.path.join(replay_dir, f)
 
@@ -90,10 +92,10 @@ class RunConfig(object):
         os.path.splitext(os.path.basename(map_name))[0],
         now.isoformat("-").replace(":", "-"))
     replay_dir = self.abs_replay_path(replay_dir)
-    if not os.path.exists(replay_dir):
-      os.makedirs(replay_dir)
+    if not gfile.Exists(replay_dir):
+      gfile.MakeDirs(replay_dir)
     replay_path = os.path.join(replay_dir, replay_filename)
-    with open(replay_path, "wb") as f:
+    with gfile.Open(replay_path, "wb") as f:
       f.write(replay_data)
     return replay_path
 

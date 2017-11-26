@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61383cba-087a-4afb-aeb3-e043569ea141" name="Default" comment="" />
+    <list default="true" id="61383cba-087a-4afb-aeb3-e043569ea141" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/agents/base_agent.py" afterPath="$PROJECT_DIR$/pysc2/agents/base_agent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/agents/scripted_agent.py" afterPath="$PROJECT_DIR$/pysc2/agents/scripted_agent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/__init__.py" afterPath="$PROJECT_DIR$/pysc2/bin/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/agent.py" afterPath="$PROJECT_DIR$/pysc2/bin/agent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/gen_actions.py" afterPath="$PROJECT_DIR$/pysc2/bin/gen_actions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/map_list.py" afterPath="$PROJECT_DIR$/pysc2/bin/map_list.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/play.py" afterPath="$PROJECT_DIR$/pysc2/bin/play.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/replay_actions.py" afterPath="$PROJECT_DIR$/pysc2/bin/replay_actions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/replay_info.py" afterPath="$PROJECT_DIR$/pysc2/bin/replay_info.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/bin/valid_actions.py" afterPath="$PROJECT_DIR$/pysc2/bin/valid_actions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/env/sc2_env.py" afterPath="$PROJECT_DIR$/pysc2/env/sc2_env.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/actions.py" afterPath="$PROJECT_DIR$/pysc2/lib/actions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/colors.py" afterPath="$PROJECT_DIR$/pysc2/lib/colors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/features.py" afterPath="$PROJECT_DIR$/pysc2/lib/features.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/features_test.py" afterPath="$PROJECT_DIR$/pysc2/lib/features_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/point.py" afterPath="$PROJECT_DIR$/pysc2/lib/point.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/point_test.py" afterPath="$PROJECT_DIR$/pysc2/lib/point_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/protocol.py" afterPath="$PROJECT_DIR$/pysc2/lib/protocol.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/remote_controller.py" afterPath="$PROJECT_DIR$/pysc2/lib/remote_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/renderer_human.py" afterPath="$PROJECT_DIR$/pysc2/lib/renderer_human.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/sc_process.py" afterPath="$PROJECT_DIR$/pysc2/lib/sc_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/lib/stopwatch_test.py" afterPath="$PROJECT_DIR$/pysc2/lib/stopwatch_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/maps/ladder.py" afterPath="$PROJECT_DIR$/pysc2/maps/ladder.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/maps/lib.py" afterPath="$PROJECT_DIR$/pysc2/maps/lib.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/maps/melee.py" afterPath="$PROJECT_DIR$/pysc2/maps/melee.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/maps/mini_games.py" afterPath="$PROJECT_DIR$/pysc2/maps/mini_games.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/run_configs/__init__.py" afterPath="$PROJECT_DIR$/pysc2/run_configs/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/run_configs/lib.py" afterPath="$PROJECT_DIR$/pysc2/run_configs/lib.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/run_configs/platforms.py" afterPath="$PROJECT_DIR$/pysc2/run_configs/platforms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/easy_scripted_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/easy_scripted_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/maps_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/maps_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/obs_spec_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/obs_spec_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/ping_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/ping_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/protocol_error_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/protocol_error_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/random_agent_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/random_agent_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/replay_obs_test.py" afterPath="$PROJECT_DIR$/pysc2/tests/replay_obs_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pysc2/tests/utils.py" afterPath="$PROJECT_DIR$/pysc2/tests/utils.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,54 +49,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="test_agent.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pysc2/agents/test_agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="130" column="33" lean-forward="true" selection-start-line="130" selection-start-column="33" selection-end-line="130" selection-end-column="33" />
-              <folding>
-                <element signature="e#634#672#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="features.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pysc2/lib/features.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="307" column="38" lean-forward="false" selection-start-line="307" selection-start-column="38" selection-end-line="307" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="actions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pysc2/lib/actions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="838" column="47" lean-forward="false" selection-start-line="838" selection-start-column="27" selection-end-line="838" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sc2_env.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pysc2/env/sc2_env.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="87" column="29" lean-forward="false" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="environment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pysc2/env/environment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1455">
-              <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="93">
+              <caret line="101" column="19" lean-forward="true" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -90,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="-4" />
     <option name="width" value="1400" />
@@ -131,6 +128,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -149,29 +147,10 @@
               <item name="pysc2" type="462c0819:PsiDirectoryNode" />
               <item name="agents" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="pysc2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pysc2" type="462c0819:PsiDirectoryNode" />
-              <item name="pysc2" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pysc2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pysc2" type="462c0819:PsiDirectoryNode" />
-              <item name="pysc2" type="462c0819:PsiDirectoryNode" />
-              <item name="env" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pysc2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pysc2" type="462c0819:PsiDirectoryNode" />
-              <item name="pysc2" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,7 +209,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="false" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="pysc2" />
       <option name="SCRIPT_NAME" value="" />
@@ -265,16 +244,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="-4" width="1857" height="1092" extended-state="6" />
+    <frame x="260" y="-4" width="1857" height="1092" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11387507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11608624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33717278" sideWeight="0.50193477" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3034826" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3034826" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33717278" sideWeight="0.49806523" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -285,6 +263,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32984293" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -318,13 +297,32 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pysc2/env/sc2_env.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/agents/base_agent.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/bin/play.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/bin/agent.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/bin/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/agents/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/lib/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/agents/scripted_agent.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/agents/random_agent.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/env/sc2_env.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/env/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/run_configs/platforms.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/run_configs/lib.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/bin/map_list.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/bin/gen_actions.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/env/base_env_wrapper.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/env/environment.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/agents/base_agent.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/lib/actions.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/lib/features.py" />
+    <entry file="file://$PROJECT_DIR$/pysc2/agents/test_agent.py" />
     <entry file="file://$PROJECT_DIR$/pysc2/agents/base_agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#650#688#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -332,9 +330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#634#672#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -342,7 +337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="41" column="3" lean-forward="true" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -350,7 +344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -358,9 +351,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#706#744#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -368,7 +358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6156">
           <caret line="353" column="31" lean-forward="false" selection-start-line="353" selection-start-column="28" selection-end-line="353" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -376,7 +365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4932">
           <caret line="289" column="23" lean-forward="true" selection-start-line="289" selection-start-column="23" selection-end-line="289" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -384,7 +372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -392,9 +379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#650#688#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -430,9 +414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#706#744#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -440,7 +421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="41" column="3" lean-forward="false" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -448,7 +428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -456,7 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="87" column="29" lean-forward="false" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -464,7 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -472,7 +449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1437">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -480,7 +456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1239">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -488,7 +463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -496,7 +470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -504,7 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2661">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -512,7 +484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -520,7 +491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1455">
           <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -528,9 +498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="39" />
-          <folding>
-            <element signature="e#650#688#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -538,7 +505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-20">
           <caret line="838" column="47" lean-forward="false" selection-start-line="838" selection-start-column="27" selection-end-line="838" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -546,17 +512,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="307" column="38" lean-forward="false" selection-start-line="307" selection-start-column="38" selection-end-line="307" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pysc2/agents/test_agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="130" column="33" lean-forward="true" selection-start-line="130" selection-start-column="33" selection-end-line="130" selection-end-column="33" />
-          <folding>
-            <element signature="e#634#672#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="93">
+          <caret line="101" column="19" lean-forward="true" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

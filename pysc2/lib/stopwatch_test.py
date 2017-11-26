@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # Copyright 2017 Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,7 +25,7 @@ from future.builtins import range  # pylint: disable=redefined-builtin
 import mock
 from pysc2.lib import stopwatch
 
-from pysc2.lib import basetest
+from absl.testing import absltest as basetest
 
 
 def ham_dist(str1, str2):

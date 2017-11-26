@@ -18,18 +18,21 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import json
 import platform
 import sys
 import time
 
+import mpyq
+import six
 from pysc2 import maps
 from pysc2 import run_configs
 from pysc2.env import sc2_env
 from pysc2.lib import renderer_human
 from pysc2.lib import stopwatch
 
-from pysc2.lib import app
-import gflags as flags
+from absl import app
+from absl import flags
 from s2clientprotocol import sc2api_pb2 as sc_pb
 
 FLAGS = flags.FLAGS
@@ -66,7 +69,7 @@ flags.DEFINE_string("map_path", None, "Override the map for this replay.")
 flags.DEFINE_string("replay", None, "Name of a replay to show.")
 
 
-def _main(unused_argv):
+def main(unused_argv):
   """Run SC2 to play a game or a replay."""
   stopwatch.sw.enabled = FLAGS.profile or FLAGS.trace
   stopwatch.sw.trace = FLAGS.trace
@@ -111,13 +114,14 @@ def _main(unused_argv):
         realtime=FLAGS.realtime,
         disable_fog=FLAGS.disable_fog,
         local_map=sc_pb.LocalMap(map_path=map_inst.path,
-                                 map_data=run_config.map_data(map_inst.path)))
+                                 map_data=map_inst.data(run_config)))
     create.player_setup.add(type=sc_pb.Participant)
     create.player_setup.add(type=sc_pb.Computer,
                             race=sc2_env.races[FLAGS.bot_race],
                             difficulty=sc2_env.difficulties[FLAGS.difficulty])
     join = sc_pb.RequestJoinGame(race=sc2_env.races[FLAGS.user_race],
                                  options=interface)
+    game_version = None
   else:
     replay_data = run_config.replay_data(FLAGS.replay)
     start_replay = sc_pb.RequestStartReplay(
@@ -125,8 +129,10 @@ def _main(unused_argv):
         options=interface,
         disable_fog=FLAGS.disable_fog,
         observed_player_id=FLAGS.observed_player)
+    game_version = get_game_version(replay_data)
 
-  with run_config.start(full_screen=FLAGS.full_screen) as controller:
+  with run_config.start(game_version=game_version,
+                        full_screen=FLAGS.full_screen) as controller:
     if FLAGS.map:
       controller.create_game(create)
       controller.join_game(join)
@@ -175,9 +181,19 @@ def _main(unused_argv):
     print(stopwatch.sw)
 
 
-def main():  # Needed so setup.py scripts work.
-  app.really_start(_main)
+def get_game_version(replay_data):
+  replay_io = six.BytesIO()
+  replay_io.write(replay_data)
+  replay_io.seek(0)
+  archive = mpyq.MPQArchive(replay_io).extract()
+  metadata = json.loads(archive[b"replay.gamemetadata.json"].decode("utf-8"))
+  version = metadata["GameVersion"]
+  return ".".join(version.split(".")[:-1])
+
+
+def entry_point():  # Needed so setup.py scripts work.
+  app.run(main)
 
 
 if __name__ == "__main__":
-  main()
+  app.run(main)

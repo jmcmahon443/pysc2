@@ -21,7 +21,6 @@ from __future__ import print_function
 import collections
 import multiprocessing
 import os
-import Queue
 import signal
 import sys
 import threading
@@ -29,6 +28,7 @@ import time
 
 from future.builtins import range  # pylint: disable=redefined-builtin
 import six
+from six.moves import queue
 
 from pysc2 import run_configs
 from pysc2.lib import features
@@ -36,8 +36,10 @@ from pysc2.lib import point
 from pysc2.lib import protocol
 from pysc2.lib import remote_controller
 
-from pysc2.lib import app
-import gflags as flags
+from absl import app
+from absl import flags
+from pysc2.lib import gfile
+from s2clientprotocol import common_pb2 as sc_common
 from s2clientprotocol import sc2api_pb2 as sc_pb
 
 FLAGS = flags.FLAGS
@@ -185,7 +187,7 @@ class ReplayProcessor(multiprocessing.Process):
           for _ in range(300):
             try:
               replay_path = self.replay_queue.get()
-            except Queue.Empty:
+            except queue.Empty:
               self._update_stage("done")
               self._print("Empty queue, returning")
               return
@@ -203,8 +205,9 @@ class ReplayProcessor(multiprocessing.Process):
               if valid_replay(info, ping):
                 self.stats.replay_stats.maps[info.map_name] += 1
                 for player_info in info.player_info:
-                  self.stats.replay_stats.races[
-                      sc_pb.Race.Name(player_info.player_info.race_actual)] += 1
+                  race_name = sc_common.Race.Name(
+                      player_info.player_info.race_actual)
+                  self.stats.replay_stats.races[race_name] += 1
                 map_data = None
                 if info.local_map_path:
                   self._update_stage("open map file")
@@ -306,7 +309,7 @@ def stats_printer(stats_queue):
           running = False
           break
         proc_stats[s.proc_id] = s
-      except Queue.Empty:
+      except queue.Empty:
         pass
 
     replay_stats = ReplayStats()
@@ -330,7 +333,7 @@ def main(unused_argv):
   """Dump stats about all the actions that are in use in a set of replays."""
   run_config = run_configs.get()
 
-  if not os.path.exists(FLAGS.replays):
+  if not gfile.Exists(FLAGS.replays):
     sys.exit("{} doesn't exist.".format(FLAGS.replays))
 
   stats_queue = multiprocessing.Queue()
@@ -364,5 +367,6 @@ def main(unused_argv):
     stats_queue.put(None)  # Tell the stats_thread to print and exit.
     stats_thread.join()
 
+
 if __name__ == "__main__":
-  app.run()
+  app.run(main)

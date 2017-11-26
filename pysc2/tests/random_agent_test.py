@@ -23,7 +23,7 @@ from pysc2.env import run_loop
 from pysc2.env import sc2_env
 from pysc2.tests import utils
 
-from pysc2.lib import basetest
+from absl.testing import absltest as basetest
 
 
 class TestRandomAgent(utils.TestCase):
@@ -32,7 +32,7 @@ class TestRandomAgent(utils.TestCase):
     steps = 100
     step_mul = 50
     with sc2_env.SC2Env(
-        "Simple64",
+        map_name="Simple64",
         step_mul=step_mul,
         game_steps_per_episode=steps * step_mul) as env:
       agent = random_agent.RandomAgent()

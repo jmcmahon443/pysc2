@@ -24,8 +24,9 @@ import six
 from pysc2 import maps
 from pysc2 import run_configs
 
-from pysc2.lib import app
-import gflags as flags
+from absl import app
+from absl import flags
+from s2clientprotocol import common_pb2 as sc_common
 from s2clientprotocol import data_pb2 as sc_data
 from s2clientprotocol import sc2api_pb2 as sc_pb
 
@@ -41,11 +42,11 @@ def get_data():
   with run_config.start() as controller:
     m = maps.get("Sequencer")  # Arbitrary ladder map.
     create = sc_pb.RequestCreateGame(local_map=sc_pb.LocalMap(
-        map_path=m.path, map_data=run_config.map_data(m.path)))
+        map_path=m.path, map_data=m.data(run_config)))
     create.player_setup.add(type=sc_pb.Participant)
-    create.player_setup.add(type=sc_pb.Computer, race=sc_pb.Random,
+    create.player_setup.add(type=sc_pb.Computer, race=sc_common.Random,
                             difficulty=sc_pb.VeryEasy)
-    join = sc_pb.RequestJoinGame(race=sc_pb.Random,
+    join = sc_pb.RequestJoinGame(race=sc_common.Random,
                                  options=sc_pb.InterfaceOptions(raw=True))
 
     controller.create_game(create)
@@ -140,11 +141,11 @@ def generate_py_abilities(data):
 
     name = generate_name(ability).replace(" ", "_")
 
-    if ability.target in (sc_data.AbilityData.None,
+    if ability.target in (sc_data.AbilityData.Target.Value("None"),
                           sc_data.AbilityData.PointOrNone):
       print_action(next(func_ids), name + "_quick", "cmd_quick", ab_id,
                    ability.remaps_to_ability_id)
-    if ability.target != sc_data.AbilityData.None:
+    if ability.target != sc_data.AbilityData.Target.Value("None"):
       print_action(next(func_ids), name+ "_screen", "cmd_screen", ab_id,
                    ability.remaps_to_ability_id)
       if ability.allow_minimap:
@@ -211,4 +212,4 @@ skip_abilities = cancel_slot | unload_unit | frivolous
 
 
 if __name__ == "__main__":
-  app.really_start(main)
+  app.run(main)

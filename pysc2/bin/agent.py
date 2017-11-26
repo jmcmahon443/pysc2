@@ -29,8 +29,8 @@ from pysc2.env import run_loop
 from pysc2.env import sc2_env
 from pysc2.lib import stopwatch
 
-from pysc2.lib import app
-import gflags as flags
+from absl import app
+from absl import flags
 
 
 FLAGS = flags.FLAGS
@@ -63,7 +63,7 @@ flags.mark_flag_as_required("map")
 
 def run_thread(agent_cls, map_name, visualize):
   with sc2_env.SC2Env(
-      map_name,
+      map_name=map_name,
       agent_race=FLAGS.agent_race,
       bot_race=FLAGS.bot_race,
       difficulty=FLAGS.difficulty,
@@ -79,7 +79,7 @@ def run_thread(agent_cls, map_name, visualize):
       env.save_replay(agent_cls.__name__)
 
 
-def _main(unused_argv):
+def main(unused_argv):
   """Run an agent."""
   stopwatch.sw.enabled = FLAGS.profile or FLAGS.trace
   stopwatch.sw.trace = FLAGS.trace
@@ -90,11 +90,12 @@ def _main(unused_argv):
   agent_cls = getattr(importlib.import_module(agent_module), agent_name)
 
   threads = []
-  for i in range(FLAGS.parallel):
-    t = threading.Thread(target=run_thread, args=(
-        agent_cls, FLAGS.map, FLAGS.render and i == 0))
+  for _ in range(FLAGS.parallel - 1):
+    t = threading.Thread(target=run_thread, args=(agent_cls, FLAGS.map, False))
     threads.append(t)
     t.start()
+
+  run_thread(agent_cls, FLAGS.map, FLAGS.render)
 
   for t in threads:
     t.join()
@@ -103,9 +104,9 @@ def _main(unused_argv):
     print(stopwatch.sw)
 
 
-def main():  # Needed so setup.py scripts work.
-  app.really_start(_main)
+def entry_point():  # Needed so setup.py scripts work.
+  app.run(main)
 
 
 if __name__ == "__main__":
-  main()
+  app.run(main)

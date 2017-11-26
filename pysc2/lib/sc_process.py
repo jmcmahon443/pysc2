@@ -17,7 +17,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import logging
+from absl import logging
 import os
 import shutil
 import socket
@@ -34,6 +34,10 @@ from pysc2.lib import remote_controller
 from pysc2.lib import stopwatch
 import websocket
 
+from absl import flags
+
+flags.DEFINE_bool("sc2_verbose", False, "Enable SC2 verbose logging.")
+FLAGS = flags.FLAGS
 
 sw = stopwatch.sw
 
@@ -53,22 +57,28 @@ class StarcraftProcess(object):
       controller.ping()
   """
 
-  def __init__(self, run_config, full_screen=False, **kwargs):
+  def __init__(self, run_config, full_screen=False, game_version=None,
+               data_version=None, verbose=False, **kwargs):
     self._proc = None
     self._sock = None
     self._controller = None
     self._tmp_dir = tempfile.mkdtemp(prefix="sc-", dir=run_config.tmp_dir)
     self._port = portpicker.pick_unused_port()
-    self._check_exists(run_config.exec_path)
+    exec_path = run_config.exec_path(game_version)
+    self._check_exists(exec_path)
 
     args = [
-        run_config.exec_path,
+        exec_path,
         "-listen", "127.0.0.1",
         "-port", str(self._port),
         "-dataDir", os.path.join(run_config.data_dir, ""),
         "-tempDir", os.path.join(self._tmp_dir, ""),
         "-displayMode", "1" if full_screen else "0",
     ]
+    if verbose or FLAGS.sc2_verbose:
+      args += ["-verbose"]
+    if data_version:
+      args += ["-dataVersion", data_version.upper()]
     try:
       self._proc = self._launch(run_config, args, **kwargs)
       self._sock = self._connect(self._port)
@@ -87,6 +97,9 @@ class StarcraftProcess(object):
     self._proc = None
     self._sock = None
     self._controller = None
+    if hasattr(self, "_port") and self._port:
+      portpicker.return_port(self._port)
+      self._port = None
     if os.path.exists(self._tmp_dir):
       shutil.rmtree(self._tmp_dir)
 
@@ -132,7 +145,7 @@ class StarcraftProcess(object):
         logging.warning(
             "SC2 isn't running, so bailing early on the websocket connection.")
         break
-      logging.info("Connection attempt %s", i)
+      logging.info("Connection attempt %s (running: %s)", i, is_running)
       time.sleep(1)
       try:
         return websocket.create_connection("ws://127.0.0.1:%s/sc2api" % port,
@@ -167,16 +180,6 @@ def _shutdown_proc(p, timeout):
       logging.info("Shutdown gracefully.")
       return ret
     time.sleep(1 / freq)
-  for attempt in range(3):
-    # We would like SC2 to shut down cleanly, but become forceful if needed.
-    logging.warning("Terminating attempt %s...", attempt)
-    p.terminate()
-    for _ in range(1 + timeout * freq):
-      ret = p.poll()
-      if ret is not None:
-        logging.warning("Terminated.")
-        return ret
-      time.sleep(1 / freq)
   logging.warning("Killing the process.")
   p.kill()
   return p.wait()

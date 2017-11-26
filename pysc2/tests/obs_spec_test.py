@@ -25,13 +25,13 @@ from pysc2.agents import random_agent
 from pysc2.env import sc2_env
 from pysc2.tests import utils
 
-from pysc2.lib import basetest
+from absl.testing import absltest as basetest
 
 
 class TestObservationSpec(utils.TestCase):
 
   def test_observation_matches_obs_spec(self):
-    with sc2_env.SC2Env("Simple64") as env:
+    with sc2_env.SC2Env(map_name="Simple64") as env:
       spec = env.observation_spec()
 
       agent = random_agent.RandomAgent()

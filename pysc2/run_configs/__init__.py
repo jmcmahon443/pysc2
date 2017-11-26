@@ -17,10 +17,10 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from pysc2.run_configs import lib
 from pysc2.run_configs import platforms
+from pysc2.run_configs import lib
 
-import gflags as flags
+from absl import flags
 
 flags.DEFINE_string("sc2_run_config", None,
                     "Which run_config to use to spawn the binary.")

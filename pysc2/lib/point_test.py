@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # Copyright 2017 Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,9 +18,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+from future.builtins import int  # pylint: disable=redefined-builtin
+
 from pysc2.lib import point
 
-from pysc2.lib import basetest
+from absl.testing import absltest as basetest
 
 
 class FakePoint(object):
@@ -67,26 +70,39 @@ class PointTest(basetest.TestCase):
     self.assertEqual(point.Point(6, 8), p.scale_max_size(point.Point(100, 8)))
     self.assertEqual(point.Point(6, 8), p.scale_max_size(point.Point(6, 100)))
 
+  def testScaleMinSize(self):
+    p = point.Point(3, 4)
+    self.assertEqual(p, p.scale_min_size(p))
+    self.assertEqual(point.Point(6, 8), p.scale_min_size(point.Point(6, 6)))
+    self.assertEqual(point.Point(6, 8), p.scale_min_size(point.Point(2, 8)))
+    self.assertEqual(point.Point(6, 8), p.scale_min_size(point.Point(6, 2)))
+
+  def testMinDim(self):
+    self.assertEqual(5, point.Point(5, 10).min_dim())
+
+  def testMaxDim(self):
+    self.assertEqual(10, point.Point(5, 10).max_dim())
+
   def testTranspose(self):
     self.assertEqual(point.Point(4, 3), point.Point(3, 4).transpose())
 
   def testRound(self):
     p = point.Point(1.3, 2.6).round()
     self.assertEqual(point.Point(1, 3), p)
-    self.assertIsInstance(p.x, (int, long))
-    self.assertIsInstance(p.y, (int, long))
+    self.assertIsInstance(p.x, int)
+    self.assertIsInstance(p.y, int)
 
   def testCeil(self):
     p = point.Point(1.3, 2.6).ceil()
     self.assertEqual(point.Point(2, 3), p)
-    self.assertIsInstance(p.x, (int, long))
-    self.assertIsInstance(p.y, (int, long))
+    self.assertIsInstance(p.x, int)
+    self.assertIsInstance(p.y, int)
 
   def testFloor(self):
     p = point.Point(1.3, 2.6).floor()
     self.assertEqual(point.Point(1, 2), p)
-    self.assertIsInstance(p.x, (int, long))
-    self.assertIsInstance(p.y, (int, long))
+    self.assertIsInstance(p.x, int)
+    self.assertIsInstance(p.y, int)
 
   def testRotate(self):
     p = point.Point(0, 100)
